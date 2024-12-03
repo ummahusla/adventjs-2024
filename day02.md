@@ -42,7 +42,7 @@ createFrame(['a', 'bb', 'ccc'])
 createFrame(['a', 'bb', 'ccc', 'dddd'])
 ```
 
-### Solution
+### Solution (5/5 stars)
 
 ```js
 function createFrame(names) {
