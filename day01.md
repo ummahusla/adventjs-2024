@@ -21,7 +21,7 @@ console.log(preparedGifts3) // []
 // There are no gifts, the list remains empty
 ```
 
-### Solution
+### Solution (5/5 stars)
 
 ```js
 function prepareGifts(gifts) {
