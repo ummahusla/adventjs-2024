@@ -54,7 +54,7 @@ organizeInventory(inventary2)
 // }
 ```
 
-### Solution
+### Solution (1/5 stars)
 
 ```js
 function organizeInventory(inventory) {
@@ -71,6 +71,22 @@ function organizeInventory(inventory) {
 
     result[category][name] = (result[category][name] || 0) + quantity;
   });
+
+  return result;
+}
+```
+
+### Solution (3/5 stars)
+
+```js
+function organizeInventory(inventory) {
+  const result = {};
+
+  for (const { category, name, quantity } of inventory) {
+    const categoryObj = result[category] ?? (result[category] = {});
+
+    categoryObj[name] = (categoryObj[name] ?? 0) + quantity;
+  }
 
   return result;
 }
