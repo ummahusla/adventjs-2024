@@ -92,4 +92,24 @@ function organizeInventory(inventory) {
 }
 ```
 
+### Solution (4/5 stars)
+
+```js
+function organizeInventory(inventory) {
+    const result = {};
+    
+    for (let i = 0, len = inventory.length; i < len; i++) {
+        const { category, name, quantity } = inventory[i];
+        
+        if (result[category] === undefined) {
+            result[category] = {};
+        }
+        
+        result[category][name] = (result[category][name] || 0) + quantity;
+    }
+    
+    return result;
+}
+```
+
 
