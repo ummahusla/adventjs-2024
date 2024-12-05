@@ -39,33 +39,26 @@ organizeShoes(shoes3)
 // []
 ```
 
-# Solution (1/5 stars)
+# Solution (5/5 stars)
 
 ```js
 function organizeShoes(shoes) {
-  let pairs = [];
-  let map = {};
+  const map = {};
+  const pairs = [];
 
-  for (let i = 0; i < shoes.length; i++) {
-    const {type, size} = shoes[i];
-    
+  for (const { type, size } of shoes) {
     if (!map[size]) {
-      map[size] = {
-        "I": 0,
-        "R": 0,
-      };
+      map[size] = { I: 0, R: 0 };
     }
-    
-    map[size][type] = map[size][type] + 1;
+
+    map[size][type]++;
+
+    if (map[size].I > 0 && map[size].R > 0) {
+      pairs.push(size);
+      map[size].I--;
+      map[size].R--;
+    }
   }
-  
-  Object.keys(map).map((key) => {
-    if(map[key].I > 0 && map[key].R > 0) {
-      if(Math.min(map[key].I, map[key].R)) {
-        pairs.push(...Array(Math.min(map[key].I, map[key].R)).fill(Number(key)));
-      }
-    }
-  });
 
   return pairs;
 }
