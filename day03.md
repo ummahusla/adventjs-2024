@@ -54,44 +54,6 @@ organizeInventory(inventary2)
 // }
 ```
 
-### Solution (1/5 stars)
-
-```js
-function organizeInventory(inventory) {
-  if (inventory.length === 0) return {};
-
-  const result = {};
-
-  inventory.forEach(item => {
-    const { category, name, quantity } = item;
-
-    if (!result[category]) {
-      result[category] = {};
-    }
-
-    result[category][name] = (result[category][name] || 0) + quantity;
-  });
-
-  return result;
-}
-```
-
-### Solution (3/5 stars)
-
-```js
-function organizeInventory(inventory) {
-  const result = {};
-
-  for (const { category, name, quantity } of inventory) {
-    const categoryObj = result[category] ?? (result[category] = {});
-
-    categoryObj[name] = (categoryObj[name] ?? 0) + quantity;
-  }
-
-  return result;
-}
-```
-
 ### Solution (4/5 stars)
 
 ```js
