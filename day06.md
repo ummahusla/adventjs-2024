@@ -1,3 +1,7 @@
+# 📦 Is the gift inside the box?
+
+### Description
+
 We have already wrapped hundreds of presents 🎁… but an elf forgot to check if the present, represented by an asterisk *, is inside the box.
 
 The box has a present (*) and counts as "inside the box" if:
@@ -39,7 +43,7 @@ inBox([
 ]) // ➞ false
 ```
 
-# Solution (5/5 stars)
+### Solution (5/5 stars)
 
 ```js
 function inBox(box) {
