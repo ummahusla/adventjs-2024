@@ -1,3 +1,7 @@
+# 🎄 Decorating the Christmas tree
+
+### Description
+
 It's time to put up the Christmas tree at home! 🎄 But this year we want it to be special. We're going to create a function that receives the height of the tree (a positive integer between 1 and 100) and a special character to decorate it.
 
 The function should return a string that represents the Christmas tree, constructed as follows:
