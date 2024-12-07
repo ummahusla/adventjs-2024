@@ -1,3 +1,7 @@
+# 🏗️ Organizing the inventory
+
+### Description
+
 Santa Claus 🎅 is checking his workshop inventory to prepare gift delivery. The elves have recorded the toys in an array of objects, but the information is a bit disorganized. You need to help Santa organize the inventory.
 
 You will receive an array of objects, where each object represents a toy and has the properties:
