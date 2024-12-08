@@ -47,27 +47,25 @@ drawRace([3, 7, -2], 12)
 */
 ```
 
-### Solution (3/5 stars)
+### Solution (5/5 stars)
 
 ```js
 function drawRace(indices, length) {
   let temp = [];
   
   for(let i=0, y=indices.length - 1; i<indices.length; i++, y--) {
-    const progress = Number(indices[i]);
     const offset = ' '.repeat(y);
-    const lineNm = ` /${i + 1}`;
     let line = '~'.repeat(length);
     let newLine = line.split('');
     
-    if(progress > 0) {
-      newLine[progress] = 'r';
-    } else if (progress < 0) {
-      newLine[length+progress] = 'r';
+    if(indices[i] > 0) {
+      newLine[indices[i]] = 'r';
+    } else if (indices[i] < 0) {
+      newLine[length+indices[i]] = 'r';
     }
   
     line = newLine.join('');
-    temp.push(`${offset}${line}${lineNm}`);
+    temp.push(`${offset}${line} /${i + 1}`);
   }
   
   return temp.join('\n');
