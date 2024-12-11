@@ -43,42 +43,31 @@ compile(instructions) // -> 2
 
 Note: Registers that have not been previously initialized are initialized to 0.
 
-### Solution (failed, 11/12 tests pass)
+### Solution (5/5 stars)
 
 ```js
 function compile(instructions) {
   let registers = {};
-  let lastModifiedRegister = null; 
-  
-  const getValue = (key) => {
-    if (!(key in registers)) {
-      registers[key] = 0;
-    }
-    return registers[key];
-  };
-
   let i = 0;
+
   while (i < instructions.length) {
     const [action, x, y] = instructions[i].split(' ');
 
     switch (action) {
       case 'MOV':
-        registers[y] = isNaN(Number(x)) ? getValue(x) : Number(x);
-        lastModifiedRegister = y; 
+        registers[y] = registers[x] ?? x;
         break;
 
       case 'INC':
-        registers[x] = getValue(x) + 1;
-        lastModifiedRegister = x;
+        registers[x] = ~~registers[x] + 1
         break;
 
       case 'DEC':
-        registers[x] = getValue(x) - 1;
-        lastModifiedRegister = x;
+        registers[x] = ~~registers[x] - 1;
         break;
 
       case 'JMP':
-        if (getValue(x) === 0) {
+        if (!registers[x]) {
           i = Number(y); 
           continue; 
         }
@@ -88,6 +77,6 @@ function compile(instructions) {
     i++; 
   }
 
-  return lastModifiedRegister ? registers[lastModifiedRegister] : undefined;
+  return registers['A'] ?? undefined;
 }
 ```
